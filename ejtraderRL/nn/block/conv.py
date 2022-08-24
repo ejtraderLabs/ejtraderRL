@@ -1,6 +1,6 @@
 import tensorflow as tf
 from tensorflow.keras import layers
-from traderl.nn.layers import layer, Activation
+from ejtraderRL.nn.layers import layer, Activation
 import numpy as np
 
 

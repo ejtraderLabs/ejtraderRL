@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers
 
-from traderl.nn.layers import SE, Activation, layer
+from ejtraderRL.nn.layers import SE, Activation, layer
 
 
 class MBBlock(layers.Layer):

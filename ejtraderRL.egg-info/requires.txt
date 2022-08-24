@@ -1,6 +1,0 @@
-numpy
-ta
-pandas
-pandas_datareader
-matplotlib
-IPython

@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers
 
-from traderl.nn.layers import layer
+from ejtraderRL.nn.layers import layer
 
 
 class ConvnextBlock(layers.Layer):
