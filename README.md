@@ -88,4 +88,5 @@ agent._build_model = custom_model
 agent.build_model()
 ```
 
-Start project thanks to  @komo135
+first release of the project is from komo135
+thanks to @komo135
