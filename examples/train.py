@@ -6,7 +6,7 @@ df = data.get_forex_data("EURUSD", "h1")
 #df = data.get_stock_data("AAPL")
 
 agent = agent.DQN(df=df, model_name="efficientnet_b0", lr=1e-4, pip_scale=25, n=3, use_device="cpu", 
-                          gamma=0.99, train_spread=0.2, balance=1000, spread=0.7, risk=0.01)
+                          gamma=0.99, train_spread=0.2, balance=1000, spread=7, risk=0.01)
 
 
 """
