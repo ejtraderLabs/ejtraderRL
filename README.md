@@ -26,7 +26,16 @@ pip install .
 | pandas |>= 1.3.4 |
 | ta | >= 0.7.0 |
 
-# How to run
+# how to run from Web app visual training
+
+```python
+
+from ejtraderRL import app
+
+app.web()
+
+```
+# How to run from python script
 
 ```python
 from ejtraderRL import data, agent

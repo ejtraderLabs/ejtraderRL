@@ -24,7 +24,3 @@ agent = agent.DQN(df=df, model_name="efficientnet_b0", lr=1e-4, pip_scale=25, n=
 """
 
 agent.train()
-
-print("Saving model")
-
-agent.model.save("efficientnet_b0_s0_H1")
