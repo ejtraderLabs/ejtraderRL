@@ -142,7 +142,7 @@ def sidebar():
 def home():
     md = """
     # ejtraderRL Web Application
-    This web app is intuitive to [ejtraderRL](https://github.com/ejejtraderRLabs/ejtraderRL).
+    This web app is intuitive to [ejtraderRL](https://github.com/ejtraderLabs/ejtraderRL).
     
     # How to Execute
     1. select data
