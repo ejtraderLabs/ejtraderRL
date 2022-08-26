@@ -392,8 +392,8 @@ class DQN:
                 print(f"profits = {self.max_profit}, max profits = {self.max_profits}\n"
                       f"pips = {self.max_pip}, max pip = {self.max_pips}")
 
-    def train(self, epoch=40, batch_size=2056):
-        for _ in range(600 // epoch):
+    def train(self, epoch=40, batch_size=2056, loop=600):
+        for _ in range(loop // epoch):
             clear_output()
             plt.figure(figsize=(10, 5))
             plt.plot(self.train_loss)
