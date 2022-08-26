@@ -76,7 +76,7 @@ class App:
         network += "_" + network_level
         self.model_name = network
 
-        col1, col2, col3, col4, col5 = st.columns(5)
+        col1, col2, col3, col4, col5, col6 = st.columns(6)
         lr = float(col1.text_input("lr", "1e-4"))
         n = int(col2.text_input("n", "3"))
         risk = float(col3.text_input("risk", "0.1"))
@@ -87,6 +87,7 @@ class App:
         use_device = col2.selectbox("use device", ("cpu", "gpu", "tpu"))
         train_spread = float(col1.text_input("train_spread", "0.2"))
         spread = int(col2.text_input("spread", "7"))
+        self.epochs = int(col2.text_input("epochs", "40"))
 
         kwargs = {"df": self.df, "model_name": network, "lr": lr, "pip_scale": pip_scale, "n": n,
                   "use_device": use_device, "gamma": gamma, "train_spread": train_spread,
@@ -99,7 +100,7 @@ class App:
     def agent_train(self):
         if self.agent:
             if st.button("training"):
-                self.agent.train()
+                self.agent.train(self.epochs)
         else:
             st.warning("agent does not exist.\n"
                        "please create agent")
