@@ -9,7 +9,7 @@ from ejtraderRL import nn
 import ta
 
 warnings.simplefilter('ignore')
-
+tf.config.run_functions_eagerly(True)
 
 class DQN:
     agent_name = "dqn"
@@ -103,7 +103,7 @@ class DQN:
     def _build_model(self) -> nn.model.Model:
         model = nn.build_model(self.model_name, self.x.shape[1:], 2, None, self.agent_name)
         model.compile(
-            tf.keras.optimizers.Adam(self.lr, clipnorm=1.), loss=self.loss(), steps_per_execution=100
+            tf.keras.optimizers.Adam(self.lr, clipnorm=1.), loss=self.loss(), steps_per_execution=100, 
         )
         return model
 
@@ -392,8 +392,8 @@ class DQN:
                 print(f"profits = {self.max_profit}, max profits = {self.max_profits}\n"
                       f"pips = {self.max_pip}, max pip = {self.max_pips}")
 
-    def train(self, epoch=40, batch_size=2056):
-        for _ in range(10 // epoch):
+    def train(self, epoch=40, batch_size=2056, loop=600):
+        for _ in range(loop // epoch):
             clear_output()
             plt.figure(figsize=(10, 5))
             plt.plot(self.train_loss)
@@ -405,6 +405,7 @@ class DQN:
             plt.show()
             self._train(epoch, batch_size)
             self.target_model.set_weights(self.model.get_weights())
+        
     
 
 

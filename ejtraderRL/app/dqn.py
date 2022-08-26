@@ -53,8 +53,13 @@ class DQN(agent.DQN):
                  f"\ngrowth rate = {total_profit / self.account_size}"
                  f"\naccuracy = {np.mean(np.array(pips) > 0)}")
 
-    def plot_result(self, w, risk=0.1):
-        self.model.set_weights(w)
+    def plot_result(self, risk=0.1):
+        try:
+            self.model.set_weights(self.best_w)
+        except:
+            st.write("Not enough Epochs or data")
+            pass
+        
         self.risk = risk
 
         fig = plt.figure(figsize=(20, 5), dpi=100)
@@ -94,7 +99,7 @@ class DQN(agent.DQN):
         plt.subplot(1, 2, 2)
         plt.plot(self.test_rewards)
         st.pyplot(fig)
-
+        
         st.write(f"profits = {self.max_profit}, max profits = {self.max_profits}\n"
                  f"pips = {self.max_pip}, max pip = {self.max_pips}")
         ################################################################################

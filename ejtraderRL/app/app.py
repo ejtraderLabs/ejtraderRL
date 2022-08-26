@@ -37,8 +37,11 @@ class App:
         if load_file and file:
             st.write(file)
             self.df = pd.read_csv(file)
+            
+            
 
         if load_file:
+            st.dataframe(self.df, 700, 500)
             st.write("Data selected")
 
     def check_data(self):
@@ -79,7 +82,7 @@ class App:
         col1, col2, col3, col4, col5, col6 = st.columns(6)
         lr = float(col1.text_input("lr", "1e-4"))
         n = int(col2.text_input("n", "3"))
-        risk = float(col3.text_input("risk", "0.1"))
+        self.risk = float(col3.text_input("risk", "0.1"))
         balance = int(col4.text_input("balance", "1000"))
         pip_scale = int(col5.text_input("pip scale", "25"))
         col1, col2 = st.columns(2)
@@ -91,7 +94,7 @@ class App:
 
         kwargs = {"df": self.df, "model_name": network, "lr": lr, "pip_scale": pip_scale, "n": n,
                   "use_device": use_device, "gamma": gamma, "train_spread": train_spread,
-                  "spread": spread,"balance": balance, "risk": risk}
+                  "spread": spread,"balance": balance, "risk": self.risk}
 
         if st.button("create agent"):
             self.create_agent(agent_name, kwargs)
@@ -107,7 +110,7 @@ class App:
 
     def show_result(self):
         if self.agent:
-            self.agent.plot_result(self.agent.best_w)
+            self.agent.plot_result(self.risk)
         else:
             st.warning("agent does not exist.\n"
                        "please create agent")
