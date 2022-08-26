@@ -110,7 +110,7 @@ class App:
 
     def show_result(self):
         if self.agent:
-            self.agent.plot_result(self.risk)
+            self.agent.plot_result(self.agent.best_w,self.risk)
         else:
             st.warning("agent does not exist.\n"
                        "please create agent")
