@@ -13,7 +13,7 @@ setup(
     name='ejtraderRL',
     packages=find_packages(),
 
-    version='1.0.4',
+    version='1.0.5',
 
     license='Apache-2.0 License',
 
